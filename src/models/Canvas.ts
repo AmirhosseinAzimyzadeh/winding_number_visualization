@@ -34,6 +34,7 @@ export default class Canvas {
   }
 
   private onStartDraw(e: MouseEvent) {
+    document.querySelector<HTMLSpanElement>('#loading')!.innerText = '[ calculating... ]';
     this.paths = [];
     this.currentPath = new Path();
     this.currentPath.addPoint(this.getRelativeLocation(e));
@@ -47,6 +48,7 @@ export default class Canvas {
     this.currentPath = null;
     this.onChange(this.context);
     this.paths.forEach(path => path.draw(this.context, this.canvas));
+    document.querySelector<HTMLSpanElement>('#loading')!.innerText = '';
   }
 
   private onDraw(e: MouseEvent) {

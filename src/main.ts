@@ -6,8 +6,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div style="position: relative;">
     <canvas
       id="canvas"
-      width="500"
-      height="500"
+      width="440"
+      height="440"
       style="
         background-color: #000000;
         position: relative;
@@ -16,7 +16,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </canvas>
 
     <div style="margin: 10px; color: white; font-family: Arial">
-      drag your mouse inside the canvas
+      draw a line inside the canvas
+      <span style="font-size: 12px; opacity: 0.7" id="loading"></span>
     </div>
   </div>
 `;
@@ -45,8 +46,6 @@ function onContextChange(context: CanvasRenderingContext2D) {
 
       const colorIndices = getColorIndicesForCoord(i, j, canvas.canvas.width);
       const [redIndex, greenIndex, blueIndex, alphaIndex] = colorIndices;
-
-      // imageData.data[redIndex] = 255;
 
       const currentPoint = new Point(x, y);
 
