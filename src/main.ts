@@ -14,6 +14,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       "
     >
     </canvas>
+
+    <div style="margin: 10px; color: white; font-family: Arial">
+      drag your mouse inside the canvas
+    </div>
+  </div>
 `;
 
 
